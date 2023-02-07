@@ -1,5 +1,21 @@
 # Git Remote Server Helpers
 
+## Generic
+
+| Variable          | Description              |
+|-------------------|--------------------------|
+| SOURCES_FOLDER | Local folder where your store your files |
+
+**Examples**:
+
+```shell
+export SOURCES_FOLDER="$HOME/Sources"
+> cr 'https://github.com/maximestevenot/wu' 
+# cd into ~/Sources/maximestevenot/wu 
+> gcr 'https://github.com/maximestevenot/wu' 
+# clone the project into ~/Sources/maximestevenot/wu directly and cd in folder
+```
+
 ## Gitlab Specific
 
 **Environement Variables:**
