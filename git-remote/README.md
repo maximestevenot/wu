@@ -13,7 +13,7 @@ export SOURCES_FOLDER="$HOME/Sources"
 > cr 'https://github.com/maximestevenot/wu' 
 # cd into ~/Sources/maximestevenot/wu 
 > gcr 'https://github.com/maximestevenot/wu' 
-# clone the project into ~/Sources/maximestevenot/wu directly and cd in folder
+# clone the project into ~/Sources/maximestevenot/wu (creates folder if missing) directly and cd in folder
 ```
 
 ## Gitlab Specific
