@@ -9,7 +9,7 @@ This app aims to generate random strings or numbers.
 Add the following line in your `.zshrc` or `.bashrc` 
 
 ```shell
-source "${INSTALL_FOLDER}/wu/generators/random.sh"
+source "${WU_FOLDER}/wu/generators/random.sh"
 ```
 
 ### Usage

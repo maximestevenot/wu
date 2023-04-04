@@ -7,14 +7,15 @@ Fully tested on MacOS with zsh.
 Clone the repository on your computer:
 
 ```shell
-INSTALL_FOLDER="$HOME/wu"
-git clone 'https://github.com/maximestevenot/wu' "$INSTALL_FOLDER/wu"
+WU_FOLDER="$HOME/wu"
+git clone 'https://github.com/maximestevenot/wu' "$WU_FOLDER/wu"
 ```
 
 Add the following lines in your `.zshrc` or `.bashrc`...
 
 ```shell
-source "${INSTALL_FOLDER}/wu/generators/random.sh"
-source "${INSTALL_FOLDER}/wu/git-remote/generic.sh"
-source "${INSTALL_FOLDER}/wu/git-remote/gitlab.sh"
+source "${WU_FOLDER}/generators/random.sh"
+source "${WU_FOLDER}/git-remote/generic.sh"
+source "${WU_FOLDER}/git-remote/gitlab.sh"
+source "${WU_FOLDER}/docker/cleanup.sh"
 ```
