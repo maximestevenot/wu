@@ -21,9 +21,11 @@ function randgen() {
     "number")
         _generate_random_string "$2" '0-9'
         ;;
-
+    "uuid")
+        uuidgen
+        ;;
     *)
-        echo 'Supported commands are: pwd|alpha-num|number'
+        echo 'Supported commands are: pwd|alpha-num|number|uuid'
         ;;
     esac
 
