@@ -9,6 +9,13 @@ function randgen() {
         echo
     }
 
+    function _generate_uuid() {
+        local uuid
+        uuid=$(uuidgen | tr '[:upper:]' '[:lower:]')
+        [[ "$1" == "upper" ]] && uuid=$(tr '[:lower:]' '[:upper:]' <<<"$uuid")
+        echo "$uuid"
+    }
+
     case "$1" in
     "pwd")
         _generate_random_string "$2" 'A-Za-z0-9!"#$%()*+,-./:;<?@[]^_`{|}~'
@@ -22,7 +29,7 @@ function randgen() {
         _generate_random_string "$2" '0-9'
         ;;
     "uuid")
-        uuidgen
+        _generate_uuid "$2"
         ;;
     *)
         echo 'Supported commands are: pwd|alpha-num|number|uuid'
