@@ -18,4 +18,5 @@ source "${WU_FOLDER}/generators/random.sh"
 source "${WU_FOLDER}/git-remote/generic.sh"
 source "${WU_FOLDER}/git-remote/gitlab.sh"
 source "${WU_FOLDER}/docker/cleanup.sh"
+source "${WU_FOLDER}/zoom/zoom.sh"
 ```
