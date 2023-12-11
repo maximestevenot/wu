@@ -53,14 +53,21 @@ function __handle_ticket() {
     fi
 }
 
-function issue() {
+function gissue() {
     eval "$(__get_inputs "$@")"
     ticket="$(curl -s --header "PRIVATE-TOKEN: ${GITLAB_API_TOKEN}" "${GITLAB_SERVER_URL}/api/v4/projects/${ISSUES_PROJECT_ID}/issues/$ticket_id")"
     __handle_ticket "$ticket_id" "$ticket" "$summarize" "$echo_description"
 }
 
-function epic() {
+function gepic() {
     eval "$(__get_inputs "$@")"
     ticket="$(curl -s --header "PRIVATE-TOKEN: $GITLAB_API_TOKEN" "${GITLAB_SERVER_URL}/api/v4/groups/${EPICS_GROUP_ID}/epics/${ticket_id}")"
     __handle_ticket "$ticket_id" "$ticket" "$summarize" "$echo_description"
+}
+
+function gproject_id() {
+    local remote="${1:-origin}"
+    local url="$(git config --get "remote.${remote}.url")"
+    local project_name="$(printf %s "${url//$GITLAB_SERVER_URL/}" | jq -sRr @uri)"
+    curl -s --get --header "PRIVATE-TOKEN: ${GITLAB_API_TOKEN}" --location "${GITLAB_SERVER_URL}/api/v4/projects/${project_name}" | jq --raw-output '.id'
 }
