@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function git-remote-to-local() {
-    local extracted_path="$(echo $1 | sed 's#https://[^/]*/##')"
+    local extracted_path="$(echo "$1" | sed 's#https://[^/]*/##; s#\.git$##')"
     echo "${SOURCES_FOLDER}/${extracted_path}"
 }
 
