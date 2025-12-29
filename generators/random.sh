@@ -9,11 +9,12 @@ function randgen() {
         echo
     }
 
-    function _generate_uuid() {
-        local uuid
-        uuid=$(uuidgen | tr '[:upper:]' '[:lower:]')
-        [[ "$1" == "upper" ]] && uuid=$(tr '[:lower:]' '[:upper:]' <<<"$uuid")
-        echo "$uuid"
+    function _generate_uuid_v4() {
+        uuidgen | tr '[:upper:]' '[:lower:]'
+    }
+
+    function _generate_uuid_v7() {
+        npx uuidv7
     }
 
     case "$1" in
@@ -29,10 +30,17 @@ function randgen() {
         _generate_random_string "$2" '0-9'
         ;;
     "uuid")
-        _generate_uuid "$2"
+        echo "Warning: uuidv4 will be replaced by uuidv7 in the future" >&2
+        _generate_uuid_v4
+        ;;
+    "uuidv7")
+        _generate_uuid_v7
+        ;;
+    "uuidv4")
+        _generate_uuid_v4
         ;;
     *)
-        echo 'Supported commands are: pwd|alpha-num|number|uuid'
+        echo 'Supported commands are: pwd|alpha-num|number|uuid|uuidv4|uuidv7'
         ;;
     esac
 
