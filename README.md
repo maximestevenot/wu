@@ -14,8 +14,9 @@ git clone 'https://github.com/maximestevenot/wu' "$WU_FOLDER/wu"
 Add the following lines in your `.zshrc` or `.bashrc`...
 
 ```shell
-source "${WU_FOLDER}/git-remote/generic.sh"
-source "${WU_FOLDER}/git-remote/gitlab.sh"
+source "${WU_FOLDER}/git/generic.sh"
+source "${WU_FOLDER}/git/gitlab.sh"
+source "${WU_FOLDER}/git/worktrees.sh"
 ```
 
 Build and install the Go-based tools:
